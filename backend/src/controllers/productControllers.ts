@@ -89,4 +89,33 @@ const updateProduct = async (req: Request, res: Response): Promise<any> => {
   }
 }
 
-export { getAllProducts, createProduct, deleteProduct, updateProduct }
+const Busqueda = async (req: Request, res: Response): Promise<any> => {
+  try {
+    const nombreProducto = req.query.name as string;
+    if(!nombreProducto){
+     return res.status(400).json({ error : 'Datos de busqueda invalidos, intentelo nuevamente.'})
+    }
+    
+    const expresion = new RegExp(nombreProducto, 'i')
+    const resultado = await Product.find({ name: expresion })
+
+    if (resultado.length === 0) {
+      return res.status(200).json({
+        success: true,
+        message: `No se encuentra "${nombreProducto}".`,
+        data: []
+      });
+    }
+
+    res.json({
+      success: true,
+      message: 'Busqueda exitosa!',
+      data: resultado,
+    })
+  } catch (error) {
+    const err = error as Error
+    res.status(500).json({ success: false, message: err.message })
+  }
+}
+
+export { getAllProducts, createProduct, deleteProduct, updateProduct, Busqueda }

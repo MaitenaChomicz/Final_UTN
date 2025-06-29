@@ -3,6 +3,7 @@ import { Layout } from "../../components/Layout"
 import { Link } from "react-router-dom"
 import { useAuth } from "../../context/AuthContext"
 import { FormUpdate } from "../../components/FormUpdate"
+import { Buscar } from "../../components/Busqueda"
 const API_URL = import.meta.env.VITE_API_URL;
 
 const Home = () => {
@@ -75,6 +76,7 @@ const Home = () => {
       {
         isEditing && <FormUpdate product={productEditing} handleCancelEditing={handleCancelEditing} fetchingProducts={fetchingProducts} />
       }
+      <Buscar setProducts={setProducts} fetchingProducts={fetchingProducts}/>
       <section className="grid-products">
         {
           products.map((product) => {
