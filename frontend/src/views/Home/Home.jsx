@@ -3,6 +3,7 @@ import { Layout } from "../../components/Layout"
 import { Link } from "react-router-dom"
 import { useAuth } from "../../context/AuthContext"
 import { FormUpdate } from "../../components/FormUpdate"
+const API_URL = import.meta.env.VITE_API_URL;
 
 const Home = () => {
   const [products, setProducts] = useState([])
@@ -14,7 +15,7 @@ const Home = () => {
 
   const fetchingProducts = async () => {
     try {
-      const response = await fetch("http://localhost:1234/api/products")
+      const response = await fetch(`${API_URL}/products`)
 
       if (!response.ok) {
         setError("Sesión terminada, vuelve a loguearte.")

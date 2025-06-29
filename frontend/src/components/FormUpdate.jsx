@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useAuth } from "../context/AuthContext"
+const API_URL = import.meta.env.VITE_API_URL; 
 
 const FormUpdate = ({ product, handleCancelEditing, fetchingProducts }) => {
   const [name, setName] = useState(product.name)
@@ -24,7 +25,7 @@ const FormUpdate = ({ product, handleCancelEditing, fetchingProducts }) => {
     // Logica para actualizar un producto
     // fetch al backend
 
-    const response = await fetch(`http://localhost:1234/api/products/${product._id}`, {
+    const response = await fetch(`${API_URL}/products/${product._id}`, {
       method: "PATCH",
       headers: {
         Authorization: `Bearer ${token}`,
