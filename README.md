@@ -1,46 +1,97 @@
 # 🧪 Trabajo Práctico Complementario: Implementación de Búsqueda por Nombre
 
-## 🎯 Objetivo
+## 📄  Descripción
 
-Simular una tarea cotidiana dentro de un entorno de trabajo corporativo, aplicando una mejora sobre una aplicación previamente entregada. Esta mejora consiste en agregar una funcionalidad de búsqueda por nombre en la base de datos de productos, accesible desde el frontend y resuelta en el backend.
+Este proyecto es una aplicación CRUD de productos desarrollada con Node.js, Express, MongoDB y React. En esta entrega se implementó la mejora solicitada: búsqueda de productos por nombre.
 
-## 📌 Alcance de la mejora
+Se agregó un campo de búsqueda en el frontend, que permite al usuario ingresar un término para filtrar productos. En el backend, se creó una ruta específica que recibe este término de búsqueda y devuelve los productos coincidentes, ya sea parcial o totalmente, sin diferenciar mayúsculas/minúsculas.
 
-Se parte de una app CRUD funcional con MongoDB, organizada por modelos, rutas y controladores, que ya permite gestionar productos, usuarios (opcional) y categorías. Esta consigna requiere:
+## 🚀 Tecnologías utilizadas
 
-- Agregar un campo de búsqueda en el frontend, que permita buscar productos por nombre.
-- Incorporar en el backend una ruta que reciba el valor buscado y devuelva los productos que coincidan parcial o completamente.
-- Asegurar la correcta visualización dinámica de los resultados en el frontend.
-- Mantener y aplicar buenas prácticas como el uso de controladores, rutas limpias, manejo de errores y status de respuesta.
-- Usar variables de entorno en ambos entornos para separar datos sensibles y facilitar la configuración.
+Frontend
 
-## ✅ Requisitos
+    React
 
-- Utilizar la app CRUD ya desarrollada como base de trabajo.
-- Implementar un input de búsqueda de productos por nombre en el frontend.
-- Configurar una nueva ruta en el backend que reciba el término de búsqueda y realice una consulta en la base de datos.
-- La búsqueda debe ser parcial e insensible a mayúsculas/minúsculas.
-- Mostrar los resultados en pantalla en función del valor buscado.
-- Usar variables de entorno (`.env`) para definir la URL del backend en el frontend.
-- Mantener separadas las capas de modelo, controlador y rutas en el backend.
-- El backend debe estar conectado a una base de datos MongoDB usando Mongoose.
-- Conservar todo lo que ya funciona en la app sin modificar otras funcionalidades.
+    Vite
 
-## 📄 Entrega
+    JavaScript
 
-Subir el proyecto actualizado a un repositorio en GitHub.
+    Axios
 
-Incluir un archivo `README.md` que contenga:
+    CSS
 
-- Título del proyecto y breve descripción de la nueva funcionalidad agregada.
-- Tecnologías utilizadas.
-- Instrucciones para ejecutar backend y frontend.
-- Ejemplos de uso de la nueva funcionalidad.
-- Variables de entorno necesarias (`.env.example`).
+Backend
 
-Asegurarse de que tanto el backend como el frontend funcionen correctamente de forma conjunta.
+    Node.js
 
-## ⏰ Fechas
+    Express
 
-- **Apertura:** Tuesday, 17 de June de 2025, 00:00  
-- **Cierre:** Tuesday, 1 de July de 2025, 23:59
+    Mongoose
+
+    MongoDB
+
+## ⚙️ Instrucciones para ejecutar el proyecto
+
+Backend
+
+1. Clonar el repositorio
+```
+git clone https://github.com/MaitenaChomicz/Final_UTN.git
+
+```
+2. Ingresar al directorio del backend
+```
+cd backend
+
+```
+3. Instalar dependencias
+```
+npm install
+
+```
+4. Configurar el archivo .env con los datos de conexión a la base de datos (ver archivo .env.example).
+5. Iniciar el servidor
+```
+npm run dev
+
+```
+Frontend
+1. Ir al directorio del frontend
+```
+cd frontend
+
+```
+2. Instalar dependencias
+```
+npm install
+
+```
+3. Configurar el archivo .env con la URL del backend (ver archivo .env.example).
+4. Iniciar la aplicación
+```
+npm run dev
+
+```
+
+## 🔐 Variables de entorno
+
+Backend (backend/.env.example)
+```
+PORT=1234
+URI_DB=mongodb://127.0.0.1:27017/api-auth
+JWT_SECRET=kira
+```
+Frontend (frontend/.env.example)
+```
+VITE_API_URL=http://localhost:1234/api
+```
+
+## ✅ Estado
+
+Funcionalidad de búsqueda agregada exitosamente
+
+Rutas y controladores adaptados para búsquedas parciales
+
+Resultados dinámicos en el frontend
+
+Proyecto validado y probado
